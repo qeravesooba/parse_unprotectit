@@ -32,7 +32,7 @@ def download_rules(path):
         sys.exit()
 
     url = 'https://unprotect.it/api/detection_rules/'
-    while True:
+    while url:
         try:
             response = requests.api.get(url)
             response.raise_for_status()
@@ -62,8 +62,6 @@ def download_rules(path):
                 rule_file.write(rule.replace('\r\n', '\n'))
 
         url = data['next']  
-        if not url:
-            break
 
 
 if __name__ == '__main__':
