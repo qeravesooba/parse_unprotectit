@@ -38,6 +38,7 @@ def download_rules(path):
             response.raise_for_status()
         except requests.exceptions.RequestException as error:
             print(error)
+            sys.exit()
 
         data = response.json()
 
